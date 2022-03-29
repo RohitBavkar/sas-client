@@ -1,7 +1,7 @@
 #!/bin/bash
 tag=$1 
 BRANCH=$2
-github_api_token="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"
+github_api_token="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"
 owner="RohitBavkar"
 MODULE="sas-client"
 repo=$MODULE #Repo
