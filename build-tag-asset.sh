@@ -4,7 +4,7 @@ BRANCH="$1"
 RELEASE_NOTES="$2"
 BUILD_PATH="$(pwd)"
 MODULE="sas-client"
-TOKEN="$(cat secret.txt | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:Secret@123#)"
+TOKEN="$(cat git-token.txt | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:Secret@123#)"
 REPO="RohitBavkar/$MODULE"
 GITHUB="https://github.com/"
 
