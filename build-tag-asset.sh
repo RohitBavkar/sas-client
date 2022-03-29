@@ -4,7 +4,7 @@ BRANCH="$1"
 RELEASE_NOTES="$2"
 BUILD_PATH="$(pwd)"
 MODULE="sas-client"
-TOKEN="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"
+TOKEN="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"
 REPO="RohitBavkar/$MODULE"
 GITHUB="https://github.com/"
 
