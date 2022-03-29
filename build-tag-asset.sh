@@ -42,7 +42,7 @@ echo $GIT_HUB_RELEASE_URL
 eval "$GIT_HUB_RELEASE_URL"
 
 # Get release id
-GIT_HUB_RELEASE_DETAILS_URL="curl -X GET $GITHUB/$REPO/releases/tags/$VERSION -H 'authorization: token $TOKEN' -H 'cache-control: no-cache' | python -c \"import sys, json; print json.load(sys.stdin)['id']\""
+GIT_HUB_RELEASE_DETAILS_URL="curl -X GET $GITHUB/$REPO/releases/tags/$VERSION -H 'authorization: token $TOKEN' -H 'cache-control: no-cache' | python3 -c \"import sys, json; print json.load(sys.stdin)['id']\""
 echo $GIT_HUB_RELEASE_DETAILS_URL
 RELEASE_ID=$(eval "$GIT_HUB_RELEASE_DETAILS_URL")
 echo $RELEASE_ID
