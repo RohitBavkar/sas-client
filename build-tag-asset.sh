@@ -4,7 +4,7 @@ BRANCH="$1"
 RELEASE_NOTES="$2"
 BUILD_PATH="$(pwd)"
 MODULE="sas-client"
-TOKEN="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@github.com"
+TOKEN="$(cat secret.txt | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:Secret@123#)"
 REPO="RohitBavkar/$MODULE"
 GITHUB="https://github.com/"
 
@@ -21,15 +21,15 @@ echo "Build completed"
 
 VERSION=$(node -pe "require('./package.json').version")
 
-git push https://$TOKEN/$REPO.git $BRANCH
-git push https://$TOKEN/$REPO.git refs/tags/$VERSION
+git push https://$TOKEN@github.com/$REPO.git $BRANCH
+git push https://$TOKEN@github.com/$REPO.git refs/tags/$VERSION
 
 set +e
-git push https://$TOKEN/$REPO.git :refs/tags/Development
+git push https://$TOKEN@github.com/$REPO.git :refs/tags/Development
 git tag -d Development
 set -e
 git tag -m "[skip-ci] Development tag" Development
-git push https://$TOKEN/$REPO.git refs/tags/Development
+git push https://$TOKEN@github.com/$REPO.git refs/tags/Development
 
 
 echo "Package build as zip file..."
