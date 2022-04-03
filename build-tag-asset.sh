@@ -38,7 +38,9 @@ jar -cfM sas-client-$VERSION.zip dist
 sleep 2
 
 # Generate Release
-sh create-release.sh $VERSION $BRANCH
+GIT_HUB_RELEASE_URL="curl -i -g -X POST $GITHUB/$REPO/releases -H 'authorization: token $TOKEN' -H 'cache-control: no-cache' -H 'content-type: application/json' -d '{\"tag_name\": \"$VERSION\",\"target_commitish\": \"$BRANCH\",\"name\": \"$VERSION\",\"body\": \"$RELEASE_NOTES\",\"draft\": false,\"prerelease\": true}'"
+echo $GIT_HUB_RELEASE_URL
+eval "$GIT_HUB_RELEASE_URL"
 
 # Upload artifact
 
