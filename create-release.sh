@@ -2,9 +2,10 @@
 
 # establish branch and tag name variables
 releaseBranch=$1
-tagName=$2
+masterBranch=$2
+tagName="v$1"
 
-echo "Started releasing $versionLabel for $projectName ....."
+echo "Started releasing for sas-client....."
 
 # pull the latest version of the code from master
 git pull
