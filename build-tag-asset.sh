@@ -49,6 +49,6 @@ echo $RELEASE_ID
 
 # Upload artifact
 
-#sh upload-asset.sh $VERSION $BRANCH
+sh upload-asset.sh $VERSION $BRANCH
 
 echo "[INFO] Release complete"
