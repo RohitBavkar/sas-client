@@ -22,7 +22,7 @@ echo "Build completed"
 VERSION=$(node -pe "require('./package.json').version")
 
 git push https://$TOKEN@github.com/$REPO.git $BRANCH
-git push https://$TOKEN@github.com/$REPO.git refs/releases/$VERSION
+git push https://$TOKEN@github.com/$REPO.git refs/tags/$VERSION
 
 set +e
 git push https://$TOKEN@github.com/$REPO.git :refs/releases/$VERSION
