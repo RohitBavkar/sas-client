@@ -26,9 +26,9 @@ git push https://$TOKEN@github.com/$REPO.git refs/tags/$VERSION
 
 set +e
 git push https://$TOKEN@github.com/$REPO.git :refs/tags/$VERSION
-git tag -d Development
+git tag -d $VERSION
 set -e
-git tag -m "[skip-ci] Development tag" Development
+git tag -m "[skip-ci] Development tag" $VERSION
 git push https://$TOKEN@github.com/$REPO.git refs/tags/$VERSION
 
 
