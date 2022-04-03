@@ -25,11 +25,11 @@ git push https://$TOKEN@github.com/$REPO.git $BRANCH
 git push https://$TOKEN@github.com/$REPO.git refs/releases/$VERSION
 
 set +e
-git push https://$TOKEN@github.com/$REPO.git :refs/releases/Development
-git tag -d Development
+git push https://$TOKEN@github.com/$REPO.git :refs/releases/$VERSION
+git tag -d $VERSION
 set -e
-git tag -m "[skip-ci] Development tag" Development
-git push https://$TOKEN@github.com/$REPO.git refs/releases/Development
+git tag -m "[skip-ci] Development tag" $VERSION
+git push https://$TOKEN@github.com/$REPO.git refs/releases/$VERSION
 
 
 echo "Package build as zip file..."
