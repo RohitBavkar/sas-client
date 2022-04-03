@@ -6,7 +6,7 @@ BUILD_PATH="$(pwd)"
 MODULE="sas-client"
 TOKEN="$(cat git-token.txt | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:Secret@123#)"
 REPO="RohitBavkar/$MODULE"
-GITHUB="https://github.com/"
+GITHUB="https://api.github.com/"
 
 # checkout branch
 echo "[INFO] Executing build from directory $(pwd)"
@@ -38,7 +38,7 @@ jar -cfM sas-client-$VERSION.zip dist
 sleep 2
 
 # Generate Release
-GIT_HUB_RELEASE_URL="curl -i -g -X POST $GITHUB/$REPO/releases -H 'authorization: token $TOKEN' -H 'cache-control: no-cache' -H 'content-type: application/json' -d '{\"tag_name\": \"$VERSION\",\"target_commitish\": \"$BRANCH\",\"name\": \"$VERSION\",\"body\": \"$RELEASE_NOTES\",\"draft\": false,\"prerelease\": true}'"
+GIT_HUB_RELEASE_URL="curl -i -g -X POST $GITHUB/repos/$REPO/releases -H 'authorization: token $TOKEN' -H 'cache-control: no-cache' -H 'content-type: application/json' -d '{\"tag_name\": \"$VERSION\",\"target_commitish\": \"$BRANCH\",\"name\": \"$VERSION\",\"body\": \"$RELEASE_NOTES\",\"draft\": false,\"prerelease\": true}'"
 echo $GIT_HUB_RELEASE_URL
 eval "$GIT_HUB_RELEASE_URL"
 
