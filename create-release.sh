@@ -14,7 +14,7 @@ git pull
 git commit --allow-empty -m "Creating Branch $releaseBranch"
 
 # create tag for new version from -master
-git tag $tagName
+#git tag $tagName
 
 # push commit to remote origin
 git push
