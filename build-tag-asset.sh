@@ -10,7 +10,7 @@ GITHUB="https://api.github.com/"
 
 # checkout branch
 echo "[INFO] Executing build from directory $(pwd)"
-echo "$(git checkout master)"
+echo "$(git checkout $BRANCH)"
 
 # Version bump and tag
 npm version minor -m "[skip-ci] Incremented version to %s"
