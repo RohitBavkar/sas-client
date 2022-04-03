@@ -11,7 +11,7 @@ echo "Started releasing for sas-client....."
 git pull
 
 # create empty commit from master branch
-git commit --allow-empty -m "Creating Branch $releaseBranch"
+#git commit --allow-empty -m "Creating Branch $releaseBranch"
 
 # create tag for new version from -master
 #git tag $tagName
