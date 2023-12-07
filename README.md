@@ -1,2 +1,2 @@
 # sas-client
-Angular Project
+React Project
